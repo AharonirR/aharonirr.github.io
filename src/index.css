@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Old Money Cabin Editorial - Warm Oak & Cream */
+    --background: 30 25% 88%;
+    --background-deep: 30 22% 78%;
+    --foreground: 25 35% 15%;
+
+    /* Warm Ivory Journal Paper Panels */
+    --panel-base: 40 35% 91%;          /* #F3E8D6 - Base warm ivory */
+    --panel-top: 40 40% 93%;           /* #F6EEDD - Lighter top */
+    --panel-bottom: 40 32% 89%;        /* #F1E3CE - Slightly darker bottom */
+    
+    --card: 40 35% 91%;                /* Updated to warm ivory */
+    --card-foreground: 25 35% 15%;
+
+    --popover: 40 35% 91%;
+    --popover-foreground: 25 35% 15%;
+
+    /* Forest Green - ONLY accent */
+    --primary: 152 40% 28%;
+    --primary-foreground: 42 35% 97%;
+
+    --secondary: 35 28% 88%;
+    --secondary-foreground: 25 35% 15%;
+
+    --muted: 35 22% 85%;
+    --muted-foreground: 25 25% 38%;
+    
+    /* === NEW DESIGN SYSTEM TOKENS === */
+    
+    /* Text Colors - Improved Contrast (5-10% darker) */
+    --text-primary: 25 38% 12%;        /* Darkened from 15% to 12% */
+    --text-secondary: 25 32% 28%;      /* Darkened from 38% to 28% */
+    --text-muted: 25 22% 45%;          /* Darkened from 55% to 45% */
+    --body-foreground: 25 35% 18%;     /* Darkened from 22% to 18% */
+
+    /* Supporting neutral accent for micro UI details */
+    --neutral-accent: 35 12% 48%;      /* Darkened from 55% to 48% */
+
+    /* Borders & Dividers - Increased Contrast */
+    --border: 35 20% 72%;              /* Darkened from 78% to 72% */
+    --border-subtle: 35 18% 75%;       /* Darkened from 82% to 75% */
+    --divider: 35 18% 70%;             /* New: stronger divider */
+    --card-border: 35 18% 76%;         /* New: specific card border */
+    --input: 35 22% 82%;
+
+    /* === UNIFIED DEPTH SYSTEM (3-tier shadows) === */
+    --shadow-1: 0 1px 2px hsl(25 30% 18% / 0.04), 0 2px 8px hsl(25 30% 18% / 0.05);
+    --shadow-2: 0 2px 4px hsl(25 30% 18% / 0.05), 0 6px 16px hsl(25 30% 18% / 0.07), 0 1px 0 hsl(42 40% 98% / 0.4) inset;
+    --shadow-hover: 0 3px 8px hsl(25 30% 18% / 0.08), 0 12px 24px hsl(25 30% 18% / 0.09);
+    
+    /* Button & Interactive Shadows */
+    --shadow-button: 0 1px 3px hsl(152 40% 20% / 0.25), 0 4px 12px hsl(152 40% 28% / 0.22);
+    --shadow-button-hover: 0 2px 6px hsl(152 40% 20% / 0.2), 0 8px 20px hsl(152 40% 28% / 0.28);
+    
+    /* === LAYOUT & SPACING === */
+    --container-max: 76rem;            /* Increased from 48rem (768px) to 76rem (1216px) */
+    --container-padding: 1.5rem;       /* 24px */
+    --section-padding-y: 4rem;         /* 64px */
+    --card-padding: 1.5rem;            /* 24px */
+    --gap-standard: 1rem;              /* 16px */
+
+    /* === INTERACTION TIMING === */
+    --transition-fast: 150ms;
+    --transition-base: 220ms;
+    --transition-slow: 300ms;
+
+    /* === FOCUS RING === */
+    --ring: 152 40% 28%;
+    --focus-ring: 0 0 0 3px hsl(152 40% 28% / 0.15);
+    
+    --accent: 152 40% 28%;
+    --accent-foreground: 42 35% 97%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --radius: 0.875rem;
+
+    /* Typography */
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Sidebar */
+    --sidebar-background: 30 25% 88%;
+    --sidebar-foreground: 25 35% 15%;
+    --sidebar-primary: 152 40% 28%;
+    --sidebar-primary-foreground: 42 35% 97%;
+    --sidebar-accent: 35 22% 85%;
+    --sidebar-accent-foreground: 25 35% 15%;
+    --sidebar-border: 35 20% 78%;
+    --sidebar-ring: 152 40% 28%;
+  }
+
+  .dark {
+    /* Keep same palette for this design - light theme only */
+    --background: 30 25% 88%;
+    --background-deep: 30 22% 78%;
+    --foreground: 25 35% 15%;
+    
+    /* Warm Ivory Journal Paper Panels */
+    --panel-base: 40 35% 91%;
+    --panel-top: 40 40% 93%;
+    --panel-bottom: 40 32% 89%;
+    
+    --card: 40 35% 91%;
+    --card-foreground: 25 35% 15%;
+    --popover: 40 35% 91%;
+    --popover-foreground: 25 35% 15%;
+    --primary: 152 40% 28%;
+    --primary-foreground: 42 35% 97%;
+    --secondary: 35 28% 88%;
+    --secondary-foreground: 25 35% 15%;
+    --muted: 35 22% 85%;
+    --muted-foreground: 25 25% 38%;
+    --body-foreground: 25 32% 22%;
+    --neutral-accent: 35 12% 55%;
+    --accent: 152 40% 28%;
+    --accent-foreground: 42 35% 97%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 35 20% 78%;
+    --border-subtle: 35 15% 82%;
+    --input: 35 22% 82%;
+    --ring: 152 40% 28%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Scroll offset for fixed header navigation */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  body {
+    @apply bg-background antialiased;
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    color: hsl(var(--text-secondary));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    line-height: 1.3;
+    color: hsl(var(--text-primary));
+  }
+}
+
+@layer components {
+  .section-container {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  @media (min-width: 640px) {
+    .section-container {
+      --container-padding: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-container {
+      --container-padding: 2.5rem;
+    }
+  }
+
+  /* Oak wood background texture effect - cleaner, less hazy */
+  .oak-background {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      hsl(32 28% 90%) 0%,
+      hsl(31 26% 87%) 20%,
+      hsl(30 24% 84%) 45%,
+      hsl(29 22% 80%) 70%,
+      hsl(28 20% 76%) 100%
+    );
+  }
+
+  .oak-background::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Global background with subtle circuit pattern */
+  .oak-background-with-image {
+    position: relative;
+    min-height: 100vh;
+    background-color: hsl(30 35% 65%);
+    background-image: url('/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* Subtle warm overlay to maintain readability */
+  .oak-background-with-image::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      hsla(30, 30%, 75%, 0.55) 0%,
+      hsla(30, 28%, 72%, 0.60) 30%,
+      hsla(30, 26%, 70%, 0.65) 50%,
+      hsla(30, 28%, 72%, 0.60) 70%,
+      hsla(30, 30%, 75%, 0.55) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Mobile optimization - slightly stronger overlay for better readability */
+  @media (max-width: 768px) {
+    .oak-background-with-image {
+      background-attachment: scroll; /* Better performance on mobile */
+    }
+    
+    .oak-background-with-image::before {
+      background: linear-gradient(
+        180deg,
+        hsla(30, 30%, 75%, 0.65) 0%,
+        hsla(30, 28%, 72%, 0.68) 30%,
+        hsla(30, 26%, 70%, 0.70) 50%,
+        hsla(30, 28%, 72%, 0.68) 70%,
+        hsla(30, 30%, 75%, 0.65) 100%
+      );
+    }
+  }
+
+  /* Journal Panel - warm ivory paper surface with premium depth */
+  .journal-panel {
+    @apply relative overflow-hidden;
+    background: linear-gradient(180deg, hsl(var(--panel-top)), hsl(var(--panel-bottom)));
+    border-radius: var(--radius);
+    border: 1px solid hsl(35 20% 78%);
+    box-shadow: var(--shadow-1);
+  }
+
+  .journal-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+  }
+
+  /* Primary Button - Forest Green with premium states */
+  .btn-primary {
+    @apply relative px-7 py-3 text-sm font-semibold rounded-lg text-primary-foreground;
+    background: hsl(152 40% 28%);
+    box-shadow: var(--shadow-button);
+    transition: all var(--transition-base) ease;
+  }
+
+  .btn-primary:hover {
+    background: hsl(152 42% 32%);
+    box-shadow: var(--shadow-button-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0px);
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-primary:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-button-hover), var(--focus-ring);
+  }
+
+  /* Secondary Button - Outline/Ghost with premium feel */
+  .btn-secondary {
+    @apply relative px-5 py-2.5 text-sm font-medium rounded-lg;
+    background: transparent;
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--text-primary));
+    transition: all var(--transition-base) ease;
+  }
+
+  .btn-secondary:hover {
+    background: hsl(35 25% 92%);
+    border-color: hsl(var(--divider));
+    box-shadow: var(--shadow-1);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0px);
+    background: hsl(35 22% 90%);
+  }
+
+  .btn-secondary:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  /* Nav Link Style with premium active state */
+  .nav-link {
+    @apply relative text-sm font-medium py-1.5 px-2 rounded-md;
+    color: hsl(var(--text-muted));
+    transition: all var(--transition-fast) ease;
+  }
+
+  .nav-link:hover {
+    color: hsl(var(--text-primary));
+    background: hsl(35 25% 90% / 0.5);
+  }
+
+  .nav-link.active {
+    color: hsl(var(--text-primary));
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: hsl(152 40% 28%);
+    border-radius: 50%;
+  }
+
+  .nav-link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  /* Body text class for improved readability */
+  .body-text {
+    color: hsl(var(--text-secondary));
+    line-height: 1.75;
+  }
+
+  /* Section Label - editorial style */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-wider;
+    color: hsl(var(--text-muted));
+    letter-spacing: 0.1em;
+  }
+
+  /* Skill/Tech Tag with subtle depth */
+  .skill-tag {
+    @apply px-3 py-1.5 text-xs font-medium rounded-md;
+    background: hsl(35 25% 91%);
+    color: hsl(var(--text-secondary));
+    border: 1px solid hsl(var(--border-subtle));
+    transition: all var(--transition-fast) ease;
+  }
+
+  .skill-tag:hover {
+    background: hsl(35 28% 88%);
+    border-color: hsl(var(--border));
+  }
+
+  /* Accent Tag */
+  .accent-tag {
+    @apply px-2.5 py-1 text-xs font-medium rounded-md;
+    background: hsl(152 40% 28% / 0.08);
+    color: hsl(152 40% 25%);
+    border: 1px solid hsl(152 40% 28% / 0.12);
+  }
+
+  /* Premium Card with depth layering - warm ivory */
+  .premium-card {
+    @apply relative rounded-lg p-6;
+    background: linear-gradient(180deg, hsl(var(--panel-top)), hsl(var(--panel-bottom)));
+    border: 1px solid hsl(35 20% 78%);
+    box-shadow: var(--shadow-2);
+    transition: all var(--transition-base) ease;
+  }
+
+  .premium-card:hover {
+    background: linear-gradient(180deg, hsl(40 42% 94%), hsl(40 34% 90%));
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Experience card with left accent */
+  .experience-card {
+    @apply premium-card;
+    border-left: 3px solid hsl(152 40% 28%);
+    padding-left: 1.75rem;
+  }
+
+  /* Bullet list with premium styling */
+  .premium-list {
+    @apply space-y-3;
+  }
+
+  .premium-list li {
+    @apply flex items-start gap-3 py-1 px-2 -mx-2 rounded-md;
+    line-height: 1.65;
+    transition: background var(--transition-fast) ease;
+  }
+
+  .premium-list li:hover {
+    background: hsl(35 25% 92% / 0.5);
+  }
+
+  .premium-list .bullet {
+    @apply w-1.5 h-1.5 rounded-full mt-2.5 shrink-0;
+    background: hsl(152 40% 28%);
+  }
+
+  /* Show more/less toggle */
+  .toggle-button {
+    @apply flex items-center gap-2 text-sm font-medium py-2 px-3 -mx-3 rounded-md;
+    color: hsl(var(--text-muted));
+    transition: all var(--transition-base) ease;
+  }
+
+  .toggle-button:hover {
+    color: hsl(var(--text-primary));
+    background: hsl(35 25% 90% / 0.5);
+  }
+
+  .toggle-button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .toggle-button:hover .toggle-icon {
+    transform: translateY(2px);
+  }
+
+  /* Scroll indicator button */
+  .scroll-indicator {
+    @apply w-10 h-10 rounded-full flex items-center justify-center;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-1);
+    transition: all var(--transition-base) ease;
+  }
+
+  .scroll-indicator:hover {
+    background: hsl(35 30% 96%);
+    box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
+  }
+
+  .scroll-indicator:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-2), var(--focus-ring);
+  }
+
+  /* Thin divider */
+  .divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--divider)), transparent);
+  }
+
+  /* Social icon button with tooltip area */
+  .social-icon-btn {
+    @apply relative btn-secondary p-3;
+  }
+
+  .social-icon-btn .tooltip {
+    @apply absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium px-2 py-1 rounded opacity-0 pointer-events-none whitespace-nowrap;
+    background: hsl(var(--foreground));
+    color: hsl(var(--card));
+    transition: opacity var(--transition-fast) ease;
+  }
+
+  .social-icon-btn:hover .tooltip {
+    opacity: 1;
+  }
+
+  /* === UNIFIED INTERACTIVE UTILITY CLASSES === */
+  
+  /* Base interactive element (buttons, clickable cards, etc.) */
+  .interactive {
+    @apply cursor-pointer select-none;
+    transition: all var(--transition-base) ease;
+  }
+
+  .interactive:hover {
+    transform: translateY(-1px);
+  }
+
+  .interactive:active {
+    transform: translateY(0px);
+  }
+
+  .interactive:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  /* Interactive card (clickable project cards, skill categories, etc.) */
+  .interactive-card {
+    @apply interactive;
+    box-shadow: var(--shadow-2);
+  }
+
+  .interactive-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .interactive-card:active {
+    box-shadow: var(--shadow-2);
+    transform: translateY(0px);
+  }
+
+  /* Interactive chip/tag (clickable pills, filter chips, etc.) */
+  .interactive-chip {
+    @apply interactive;
+    border: 1px solid hsl(var(--border-subtle));
+  }
+
+  .interactive-chip:hover {
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-1);
+  }
+
+  .interactive-chip:active {
+    box-shadow: none;
+  }
+
+  /* Featured card variant with left accent line - warm ivory */
+  .featured-card {
+    @apply relative rounded-lg p-6;
+    background: linear-gradient(180deg, hsl(var(--panel-top)), hsl(var(--panel-bottom)));
+    border: 1px solid hsl(35 20% 78%);
+    border-left: 3px solid hsl(152 40% 28%);
+    padding-left: 1.75rem;
+    box-shadow: var(--shadow-2);
+    transition: all var(--transition-base) ease;
+  }
+
+  .featured-card:hover {
+    background: linear-gradient(180deg, hsl(40 42% 94%), hsl(40 34% 90%));
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Hero visual anchor styles */
+  .hero-visual {
+    @apply relative rounded-xl overflow-hidden;
+    background: linear-gradient(135deg, hsl(35 25% 88%) 0%, hsl(35 30% 92%) 100%);
+    border: 1px solid hsl(var(--card-border));
+    box-shadow: var(--shadow-2);
+  }
+
+  /* Pill tag for hero */
+  .pill-tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full;
+    background: hsl(35 25% 90%);
+    color: hsl(var(--text-secondary));
+    border: 1px solid hsl(var(--border-subtle));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scroll reveal animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  /* Subtle bounce for scroll indicator */
+  .animate-gentle-bounce {
+    animation: gentleBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gentleBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+}
